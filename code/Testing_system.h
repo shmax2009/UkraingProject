@@ -1,7 +1,3 @@
-//
-// Created by maxim on 27.10.20.
-//
-
 #ifndef TESTING_TESTING_SYCTEM_H
 #define TESTING_TESTING_SYCTEM_H
 #include <vector>

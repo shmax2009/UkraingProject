@@ -1,6 +1,3 @@
-//
-// Created by maxim on 27.10.20.
-//
 #include "Testing_system.h"
 
 void Testing_system::Test(RenderWindow &window, string path) {
@@ -81,7 +78,10 @@ void Testing_system::Test(RenderWindow &window, string path) {
     checking.setFont(font);
     checking.setPosition(0, 0);
     int iterator = 0;
-
+    Texture fone_texture;
+    fone_texture.loadFromFile("/home/maxim/CLionProjects/Testing/resources/fone.png");
+    Sprite fone;
+    fone.setTexture(fone_texture);
     while (window.isOpen()) {
         sf::Vector2i localPosition = sf::Mouse::getPosition(window);
         sf::Event event;
@@ -93,7 +93,7 @@ void Testing_system::Test(RenderWindow &window, string path) {
 
                     if (checking.getString() != "") {
                         iterator++;
-                        if(iterator >= question_.size())
+                        if (iterator >= question_.size())
                             return;
                         question_text.setString(question_[iterator].question);
                         answer_text1.setString(question_[iterator].ans[0]);
@@ -105,8 +105,6 @@ void Testing_system::Test(RenderWindow &window, string path) {
 
                 if (event.key.code == Keyboard::Escape) {
                     string add = "..";
-//                    cin >> add;
-
                     path += '/' + add;
                 }
 
@@ -134,12 +132,12 @@ void Testing_system::Test(RenderWindow &window, string path) {
         }
         if (localPosition.y < 680 && localPosition.y > 640) {
             if (localPosition.x < 500) {
-                answer_text1.setFillColor(Color::Green);
+                answer_text1.setFillColor(Color::Magenta);
                 answer_text2.setFillColor(Color::White);
 
             } else if (localPosition.x > 500) {
                 answer_text1.setFillColor(Color::White);
-                answer_text2.setFillColor(Color::Green);
+                answer_text2.setFillColor(Color::Magenta);
             }
         } else {
             answer_text1.setFillColor(Color::White);
@@ -149,6 +147,8 @@ void Testing_system::Test(RenderWindow &window, string path) {
 
         window.clear();
 //        if (b == true)
+        window.draw(fone);
+
         window.draw(checking);
         window.draw(question_text);
         window.draw(answer_text1);

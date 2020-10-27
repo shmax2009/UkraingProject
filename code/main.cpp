@@ -61,6 +61,10 @@ int main() {
     Drawing drawing;
     View view(sf::FloatRect(0, 0, 1000.f, 1000.f));
     double addedeble = 0;
+    Texture fone_texture;
+    fone_texture.loadFromFile("/home/maxim/CLionProjects/Testing/resources/fone.png");
+    Sprite fone;
+    fone.setTexture(fone_texture);
     while (window.isOpen()) {
         sf::Vector2i localPosition = sf::Mouse::getPosition(window); // window is a sf::Window
         files.clear();
@@ -74,10 +78,12 @@ int main() {
                 if (event.key.code == Keyboard::Up) {
                     view.move(0, -10);
                     addedeble -= 10;
+                    fone.move(0,-10);
                 }
                 if (event.key.code == Keyboard::Down) {
                     view.move(0, 10);
                     addedeble += 10;
+                    fone.move(0,10);
 
                 }
                 if (event.key.code == Keyboard::Escape) {
@@ -93,6 +99,7 @@ int main() {
                 view.move(0, event.mouseWheel.delta * 10);
 
                 addedeble += 10 * event.mouseWheel.delta;
+                fone.move(0,10* event.mouseWheel.delta);
 
             }
 
@@ -121,6 +128,7 @@ int main() {
         }
         window.clear();
         window.setView(view);
+        window.draw(fone);
         drawing.Draw(files, window, round(addedeble / 30 + (localPosition.y) / 30));
         window.display();
     }
