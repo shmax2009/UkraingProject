@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/maxim/CLionProjects/Testing/code/Question.h
+string
+-
+vector
+-
+
+/home/maxim/CLionProjects/Testing/code/Testing_system.h
+vector
+-
+string
+-
+SFML/Graphics.hpp
+-
+fstream
+-
+Question.h
+/home/maxim/CLionProjects/Testing/code/Question.h
+
+/home/maxim/CLionProjects/Testing/code/main.cpp
+string
+-
+iostream
+-
+vector
+-
+filesystem
+-
+SFML/Graphics.hpp
+-
+Testing_system.h
+/home/maxim/CLionProjects/Testing/code/Testing_system.h
+cmath
+-
+
